@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:keyWidth="10%p"
+    android:horizontalGap="3px"
+    android:verticalGap="3px"
+    android:keyHeight="60dp">
+    <Row>
+        <Key android:codes="1" android:keyLabel="시작" android:keyWidth="25%p"/>
+        <Key android:codes="2" android:keyLabel="종료" android:keyWidth="25%p"/>
+        <Key android:codes="3" android:keyLabel="입력" android:keyWidth="25%p"/>
+        <Key android:codes="4" android:keyLabel="설정" android:keyWidth="25%p"/>
+    </Row>
+</Keyboard>
