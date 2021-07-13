@@ -1,10 +1,8 @@
-package com.darktornado.autospamkeyboard;
+package com.darktornado.ujsspam;
 
 import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
-import android.media.AudioManager;
-import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputConnection;
@@ -35,12 +33,30 @@ public class MainService extends InputMethodService implements KeyboardView.OnKe
 
     @Override
     public void onKey(int primaryCode, int[] keyCodes) {
-        InputConnection inputConnection = getCurrentInputConnection();
-        if (inputConnection == null) return;
+        final InputConnection ic = getCurrentInputConnection();
+        if (ic == null) return;
 
         switch (primaryCode) {
+            case 1:
+                autoInput(ic, "엄");
+                break;
+            case 2:
+                autoInput(ic, "준");
+                break;
+            case 3:
+                autoInput(ic, "식");
+                break;
+            case 4:
 
+            case 5:
+
+                break;
         }
+    }
+
+    private void autoInput(InputConnection ic, String txt){
+        ic.commitText(txt, 1);
+        ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER));
     }
 
     @Override

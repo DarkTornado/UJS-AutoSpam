@@ -5,9 +5,10 @@
     android:verticalGap="3px"
     android:keyHeight="60dp">
     <Row>
-        <Key android:codes="1" android:keyLabel="시작" android:keyWidth="25%p"/>
-        <Key android:codes="2" android:keyLabel="종료" android:keyWidth="25%p"/>
-        <Key android:codes="3" android:keyLabel="입력" android:keyWidth="25%p"/>
-        <Key android:codes="4" android:keyLabel="설정" android:keyWidth="25%p"/>
+        <Key android:codes="1" android:keyLabel="엄" android:keyWidth="18%p"/>
+        <Key android:codes="2" android:keyLabel="준" android:keyWidth="18%p"/>
+        <Key android:codes="3" android:keyLabel="식" android:keyWidth="18%p"/>
+        <Key android:codes="4" android:keyLabel="엄준식" android:keyWidth="23%p"/>
+        <Key android:codes="5" android:keyLabel="설정" android:keyWidth="23%p"/>
     </Row>
 </Keyboard>
