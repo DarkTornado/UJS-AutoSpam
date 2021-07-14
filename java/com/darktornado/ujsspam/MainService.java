@@ -54,6 +54,7 @@ public class MainService extends InputMethodService implements KeyboardView.OnKe
             case 4:
                 disable = true;
                 Toast.makeText(this, "비활성화", Toast.LENGTH_SHORT).show();
+                break;
             case 5:
                 Intent intent = new Intent(MainService.this, MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
