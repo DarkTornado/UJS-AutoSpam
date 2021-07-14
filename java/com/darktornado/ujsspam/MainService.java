@@ -14,6 +14,7 @@ public class MainService extends InputMethodService implements KeyboardView.OnKe
     private KeyboardView keyboardView;
     private Keyboard keyboard;
     private boolean disable = false;
+    private int n = 0;
 
     @Override
     public View onCreateInputView() {
@@ -63,8 +64,10 @@ public class MainService extends InputMethodService implements KeyboardView.OnKe
         super.onStartInput(editorInfo, bl);
         if (!MainActivity.auto) return;
         if (disable) return;
-        getCurrentInputConnection().commitText("test", 0);
+        String[] arr = {"엄", "준", "식"};
+        getCurrentInputConnection().commitText(arr[n % 3], 0);
         getCurrentInputConnection().sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER));
+        n++;
     }
 
     private void autoInput(InputConnection ic, String txt) {
