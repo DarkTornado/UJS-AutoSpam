@@ -5,12 +5,15 @@ import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
+import android.widget.Toast;
 
 public class MainService extends InputMethodService implements KeyboardView.OnKeyboardActionListener {
 
     private KeyboardView keyboardView;
     private Keyboard keyboard;
+    private boolean disable = false;
 
     @Override
     public View onCreateInputView() {
@@ -47,14 +50,23 @@ public class MainService extends InputMethodService implements KeyboardView.OnKe
                 autoInput(ic, "식");
                 break;
             case 4:
-
+                disable = true;
+                Toast.makeText(this, "비활성화", Toast.LENGTH_SHORT).show();
             case 5:
 
                 break;
         }
     }
 
-    private void autoInput(InputConnection ic, String txt){
+    @Override
+    public void onStartInput(EditorInfo editorInfo, boolean bl) {
+        super.onStartInput(editorInfo, bl);
+        if (disable) return;
+        getCurrentInputConnection().commitText("test", 0);
+        getCurrentInputConnection().sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER));
+    }
+
+    private void autoInput(InputConnection ic, String txt) {
         ic.commitText(txt, 1);
         ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER));
     }
@@ -84,3 +96,4 @@ public class MainService extends InputMethodService implements KeyboardView.OnKe
 
     }
 }
+
