@@ -61,6 +61,7 @@ public class MainService extends InputMethodService implements KeyboardView.OnKe
     @Override
     public void onStartInput(EditorInfo editorInfo, boolean bl) {
         super.onStartInput(editorInfo, bl);
+        if (!MainActivity.auto) return;
         if (disable) return;
         getCurrentInputConnection().commitText("test", 0);
         getCurrentInputConnection().sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER));
@@ -96,4 +97,3 @@ public class MainService extends InputMethodService implements KeyboardView.OnKe
 
     }
 }
-
