@@ -1,5 +1,6 @@
 package com.darktornado.ujsspam;
 
+import android.content.Intent;
 import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
@@ -54,7 +55,9 @@ public class MainService extends InputMethodService implements KeyboardView.OnKe
                 disable = true;
                 Toast.makeText(this, "비활성화", Toast.LENGTH_SHORT).show();
             case 5:
-
+                Intent intent = new Intent(MainService.this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
                 break;
         }
     }
