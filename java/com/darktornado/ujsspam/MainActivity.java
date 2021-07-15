@@ -32,8 +32,16 @@ public class MainActivity extends Activity {
         txt.setHint("키보드 테스트용 입력란");
         layout.addView(txt);
 
+        int pad = dip2px(16);
+        layout.setPadding(pad, pad, pad, pad);
+
         ScrollView scroll = new ScrollView(this);
         scroll.addView(layout);
         setContentView(scroll);
     }
+
+    public int dip2px(int dips) {
+        return (int) Math.ceil(dips * this.getResources().getDisplayMetrics().density);
+    }
+
 }
